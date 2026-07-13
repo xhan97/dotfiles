@@ -170,3 +170,19 @@ tsproxy() {
     *)      echo "用法: tsproxy [on|off|status|check|toggle]" ;;
   esac
 }
+
+# --- chezmoi dotfiles sync helpers ---
+# 把当前受管理文件的最新改动收集进 chezmoi source 并推送到 GitHub
+dotsync() {
+  local msg="${1:-update dotfiles}"
+  chezmoi re-add || return 1
+  local src; src=$(chezmoi source-path)
+  (cd "$src" \
+    && git add -A \
+    && if git diff --cached --quiet; then echo "没有改动"; else git commit -m "$msg" && git push; fi)
+}
+# 把新文件/目录纳入 chezmoi 管理并推送
+dotadd() {
+  chezmoi add "$@" || return 1
+  dotsync "add $*"
+}
