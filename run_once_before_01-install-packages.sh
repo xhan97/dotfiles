@@ -6,7 +6,7 @@ if ! command -v brew &>/dev/null; then
     exit 0
 fi
 
-PACKAGES=(starship eza bat uv neovim fish gh)
+PACKAGES=(starship eza bat uv neovim gh)
 for pkg in "${PACKAGES[@]}"; do
     if ! brew list "$pkg" &>/dev/null; then
         brew install "$pkg"
