@@ -1,7 +1,10 @@
 set nocompatible              " be iMproved, required
+set encoding=utf-8
 set number
 set cursorline
 set tabstop=4
+set shiftwidth=4
+set expandtab
 filetype off                  " required
 
 " set the runtime path to include Vundle and initialize
@@ -39,7 +42,6 @@ Plugin 'Chiel92/vim-autoformat'
 " NERDTree
 Plugin 'scrooloose/nerdtree'
 " 将F2设置为开关NERDTree的快捷键
-nmap <F2> :NERDTreeMirror <CR>
 nmap <F2> :NERDTreeToggle <CR>
 " 修改树的显示图标
 let g:NERDTreeDirArrowExpandable = '+'
@@ -56,8 +58,6 @@ let g:NERDTreeHidden=0
 autocmd vimenter * if !argc()|NERDTree|
 " 当NERDTree为剩下的唯一窗口时自动关闭
 autocmd bufenter * if(winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
-" 打开vim时自动打开NERDTree
-autocmd vimenter * NERDTree
 
 Plugin 'jistr/vim-nerdtree-tabs'
 let NERDTreeAutoCenter=1
