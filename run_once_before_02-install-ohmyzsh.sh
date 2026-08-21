@@ -14,3 +14,15 @@ fi
 if [ ! -d "$ZSH_CUSTOM/plugins/zsh-syntax-highlighting" ]; then
     git clone --depth 1 https://github.com/zsh-users/zsh-syntax-highlighting "$ZSH_CUSTOM/plugins/zsh-syntax-highlighting"
 fi
+
+if [ ! -d "$ZSH_CUSTOM/plugins/zsh-history-substring-search" ]; then
+    git clone --depth 1 https://github.com/zsh-users/zsh-history-substring-search "$ZSH_CUSTOM/plugins/zsh-history-substring-search"
+fi
+
+if [ ! -d "$ZSH_CUSTOM/plugins/you-should-use" ]; then
+    git clone --depth 1 https://github.com/MichaelAquilina/zsh-you-should-use "$ZSH_CUSTOM/plugins/you-should-use"
+fi
+
+if [ ! -d "$ZSH_CUSTOM/plugins/fzf-tab" ]; then
+    git clone --depth 1 https://github.com/Aloxaf/fzf-tab "$ZSH_CUSTOM/plugins/fzf-tab"
+fi
